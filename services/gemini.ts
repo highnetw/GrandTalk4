@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // API 키 (실제 키로 교체)
-const GEMINI_API_KEY = "여기에_실제_API_키";
+const GEMINI_API_KEY = "AIzaSyCJevShTU1rPq9MTEEkTdD61ybJBprwtwE";
 
 export interface TranslationVariant {
   text: string;
@@ -130,7 +130,7 @@ export const isGeminiInitialized = (): boolean => {
 };
 
 // 자동 초기화
-if (GEMINI_API_KEY && GEMINI_API_KEY !== "여기에_실제_API_키") {
+if (GEMINI_API_KEY && GEMINI_API_KEY !== "AIzaSyCJevShTU1rPq9MTEEkTdD61ybJBprwtwE") {
   try {
     console.log('🚀 자동 초기화 시작');
     initGeminiService(GEMINI_API_KEY);
