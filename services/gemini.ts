@@ -1,8 +1,9 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // 1. [검증 완료] 브라우저 테스트에 성공한 그 키를 여기에 넣으세요.
-const MY_SECRET_KEY = process.env.EXPO_PUBLIC_NEW_API_KEY;
-
+// const MY_SECRET_KEY = "";
+// trim()으로 앞뒤 공백을 깎고, replace로 보이지 않는 줄바꿈 문자를 완전히 제거합니다.
+const MY_SECRET_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY?.trim().replace(/[\r\n]/gm, '');
 export interface TranslationVariant {
   text: string;
   style: string;
@@ -23,6 +24,7 @@ export class GeminiService {
   }
 
   async translateToEnglish(koreanText: string): Promise<TranslationVariant[]> {
+    
     try {
       const prompt = `Translate "${koreanText}" into 3 conversational English styles for my 5th-grade grandson in Canada: 
       1. Friendly (casual), 2. Warm (emotional), 3. Fun (energetic). 
@@ -34,7 +36,7 @@ export class GeminiService {
 
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (!jsonMatch) throw new Error('데이터 파싱 실패');
-      
+
       const parsed = JSON.parse(jsonMatch[0]);
       return parsed.variants;
     } catch (error) {
@@ -63,4 +65,4 @@ export const isGeminiInitialized = (): boolean => {
   return !!MY_SECRET_KEY && MY_SECRET_KEY.length > 10;
 };
 
-export const initGeminiService = (key: string) => {};
+export const initGeminiService = (key: string) => { };
