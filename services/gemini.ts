@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // 1. [검증 완료] 브라우저 테스트에 성공한 그 키를 여기에 넣으세요.
-const MY_SECRET_KEY = "여기에 API 키 일벽";
+const MY_SECRET_KEY = process.env.EXPO_PUBLIC_NEW_API_KEY;
 
 export interface TranslationVariant {
   text: string;
@@ -15,6 +15,10 @@ export class GeminiService {
   constructor(apiKey: string) {
     this.genAI = new GoogleGenerativeAI(apiKey || MY_SECRET_KEY);
     // 2. [명칭 수정] 목록에서 확인된 최신 안정화 모델인 'gemini-2.0-flash-001'을 사용합니다.
+    // 임시로 gemini-2.0-flash로 변경함 429 에러 때문에 
+    // 할당량 0 때문에 1.5로 바꿨음
+    // 다시 latest를 붙였음
+    // 다시 처음으로 되돌아 옴
     this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' });
   }
 
