@@ -21,7 +21,7 @@ export class GeminiService {
 
       const prompt = `Translate to English: ${koreanText}`;
       
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${this.apiKey}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${this.apiKey}`;
       console.log('🔗 요청 URL:', url);
 
       console.log('📤 REST API 호출...');
