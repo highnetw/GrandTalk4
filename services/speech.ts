@@ -1,4 +1,4 @@
-import Voice from '@react-native-voice/voice';
+// import Voice from '@react-native-voice/voice'; // ← 이 줄을 과감히 삭제하거나 주석 처리하세요!
 import * as Speech from 'expo-speech';
 
 export interface SpeechRecognitionResult {

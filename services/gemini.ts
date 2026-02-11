@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // 1. [검증 완료] 브라우저 테스트에 성공한 그 키를 여기에 넣으세요.
-// const MY_SECRET_KEY = "";
 // trim()으로 앞뒤 공백을 깎고, replace로 보이지 않는 줄바꿈 문자를 완전히 제거합니다.
 const MY_SECRET_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY?.trim().replace(/[\r\n]/gm, '');
 export interface TranslationVariant {
@@ -43,9 +42,9 @@ export class GeminiService {
       console.error('Gemini API 최종 통신 실패:', error);
       // 에러 시 무한 로딩 방지용 예비 문구
       return [
-        { style: '친근한', text: "Hey! You did such a great job! 😊" },
-        { style: '따뜻한', text: "I'm so proud of you, my dear grandson. ❤️" },
-        { style: '재미있는', text: "Wow, you're a superstar! 🌟" },
+        { style: '안내', text: "Gemini가 잠시 쉬고 싶대요. 5초 뒤에 다시 시도해 볼까요? 😊" },
+        { style: '안내', text: "방금 문장은 조금 어려웠나? 다시 한번 버튼을 눌러주세요! ✨" },
+        { style: '안내', text: "교통 체증이 있네요! 잠시 후에 다시 번역 버튼을 눌러주세요. ❤️" },
       ];
     }
   }

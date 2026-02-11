@@ -199,11 +199,11 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 16, fontWeight: 'bold', color: '#aaa', marginBottom: 8 },
   
   textInput: { 
-    backgroundColor: '#16213e', 
+    backgroundColor: '#060f2b', 
     borderRadius: 12, 
     padding: 16, 
     color: '#fff', 
-    fontSize: 18, 
+    fontSize: 20, 
     minHeight: 120, 
     textAlignVertical: 'top', 
     borderWidth: 1, 
@@ -234,6 +234,6 @@ const styles = StyleSheet.create({
   },
   translationCardSelected: { borderColor: '#4CAF50', backgroundColor: '#1a2f1a' },
   translationHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
-  translationStyle: { fontSize: 14, color: '#e91e63', fontWeight: 'bold', textTransform: 'uppercase' },
-  translationText: { fontSize: 18, color: '#fff', lineHeight: 26 },
+  translationStyle: { fontSize: 16, color: '#e91e63', fontWeight: 'bold', textTransform: 'uppercase' },
+  translationText: { fontSize: 24, color: '#fff', lineHeight: 26 },
 });

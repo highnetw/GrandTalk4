@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GrandTalk3",
-    "slug": "grandtalk3",
+    "name": "GrandTalk4",
+    "slug": "grandtalk4",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.grandtalk3",
+      "bundleIdentifier": "com.bokinwoo.grandtalk4",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "GrandTalk이 음성 인식을 위해 마이크 권한이 필요합니다.",
         "NSSpeechRecognitionUsageDescription": "GrandTalk이 음성을 텍스트로 변환하기 위해 음성 인식 권한이 필요합니다."
@@ -21,7 +21,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yourcompany.grandtalk3",
+      "package": "com.bokinwoo.grandtalk4",
       "permissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.INTERNET"
@@ -43,10 +43,48 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-speech-recognition"
+      "expo-speech-recognition",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableAndroidX": true,
+            "enableJetifier": true,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "configurations": {
+              "release": {
+                "packagingOptions": {
+                  "pickFirst": [
+                    "**/libc++_shared.so",
+                    "**/libfbjni.so"
+                  ],
+                  "exclude": [
+                    "**/support-compat-28.0.0.aar",
+                    "**/versionedparcelable-28.0.0.aar",
+                    "**/support-v4-28.0.0.aar",
+                    "**/support-core-ui-28.0.0.aar",
+                    "**/support-core-utils-28.0.0.aar",
+                    "**/support-media-compat-28.0.0.aar",
+                    "**/support-fragment-28.0.0.aar",
+                    "**/support-annotations-28.0.0.aar"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "bokinwoo",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "ffb4838b-9618-4366-a7e8-d843fec888e5"
+      }
     }
   }
 }
