@@ -54,12 +54,16 @@ export default function CommentWriterScreen() {
       if (results && results.length > 0) {
         await StorageService.saveChat(recognizedText, results[0].text);
       }
-    } catch (error: any) {
-      // 에러가 나도 recognizedText를 지우지 않으므로 바로 재시도 가능합니다!
-      Alert.alert('오류', '번역 중 문제가 생겼습니다. 다시 시도해주세요.');
-    } finally {
-      setIsTranslating(false);
-    }
+} catch (error: any) {
+  // 시스템의 빨간 에러창 대신, 부드러운 알림창을 띄웁니다.
+  Alert.alert(
+    '잠시만요! 😊', 
+    '지금 gemini가 너무 열심히 일해서 조금 숨이 찬가 봐요.\n\n5초만 쉬었다가 다시 [번역] 버튼을 눌러주시겠어요?',
+    [{ text: '알겠어요', onPress: () => setIsTranslating(false) }]
+  );
+} finally {
+  setIsTranslating(false);
+}
   };
 
   const selectAndCopy = async (index: number) => {
