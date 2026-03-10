@@ -19,7 +19,7 @@ export class GeminiService {
     // 할당량 0 때문에 1.5로 바꿨음
     // 다시 latest를 붙였음
     // 다시 처음으로 되돌아 옴
-    this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' });
+    this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
   }
 
   async translateToEnglish(koreanText: string): Promise<TranslationVariant[]> {
